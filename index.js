@@ -44,4 +44,55 @@ const bookStore = {
 }
 
 // Write your code here!
+// select the header
+const header = document.querySelector("#header");
+
+// change the header to the bookstore name
+header.textContent = bookStore.name;
+
+
+// select the book list
+const bookList = document.querySelector("#book-list");
+
+
+// remove the example book
+const exampleBook = document.querySelector("#delete-this");
+exampleBook.remove();
+
+
+// go through all the books
+bookStore.books.forEach((book) => {
+
+    // create container for one book
+    const bookContainer = document.createElement("li");
+
+    // add the css class
+    bookContainer.className = "list-li";
+
+
+    // create book title
+    const bookTitle = document.createElement("h3");
+    bookTitle.textContent = book.title;
+
+
+    // create book author
+    const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = book.author;
+
+
+    // create book image
+    const bookImage = document.createElement("img");
+    bookImage.src = book.imageUrl;
+
+
+    // put title, author and image inside book container
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
+
+
+    // put book container inside the book list
+    bookList.appendChild(bookContainer);
+
+});
 
